@@ -1,14 +1,13 @@
 import functools
 
-#this time the one-pass dict is good enough to pass the test
+#faster enough now: if j in dic.keys() kills everything. It CREATED a new view everytime
 
 class Solution(object):
     def twoSum(self, nums, target):
         dic = dict()
-        dict.get(1)
         for i in range(0,len(nums)):
             j = target-nums[i]
-            if j in dic.keys():
+            if j in dic:
                 return [dic[j],i]
             else:
                 dic[nums[i]]=i

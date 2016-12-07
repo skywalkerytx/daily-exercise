@@ -1,23 +1,17 @@
 import functools
 
-#brutal will TLE, for j, lower_bound is needed
+#this time the one-pass dict is good enough to pass the test
 
 class Solution(object):
     def twoSum(self, nums, target):
         dic = dict()
-        for i in enumerate(nums):
-            if i[1] not in dic.keys():
-                dic[i[1]]=i[0]
-            elif i[1]+i[1]==target:
-                return [min(i[0],dic[i[1]]),max(i[0],dic[i[1]])]
-        for i in nums:
-            a = dic[i]
-            try:
-                b = dic[target-i]
-                if a!=b:
-                    return [min(dic[i],dic[target-i]),max(dic[i],dic[target-i])]
-            except:
-                continue
+        dict.get(1)
+        for i in range(0,len(nums)):
+            j = target-nums[i]
+            if j in dic.keys():
+                return [dic[j],i]
+            else:
+                dic[nums[i]]=i
         return None
 
 
